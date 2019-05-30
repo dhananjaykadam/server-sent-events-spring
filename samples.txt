@@ -1,0 +1,8 @@
+  IntStream.range(1,10).forEach(i-> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            template.convertAndSend("/topic/greetings", new Greeting("Hello, " + message.getName() + "!"));
+        });
